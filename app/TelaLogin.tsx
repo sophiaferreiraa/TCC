@@ -38,7 +38,7 @@ export default function TelaLogin() {
           <Text style={styles.textoBotao}>Entrar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+       <TouchableOpacity onPress={() => router.push('/EsqueceuSenha')}>
           <Text style={styles.link}>Esqueceu a senha?</Text>
         </TouchableOpacity>
         <View style={styles.registroArea}>
