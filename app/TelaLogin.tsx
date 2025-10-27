@@ -1,20 +1,19 @@
 import React from 'react';
 import { StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-// NOVO: Importar o useRouter para navegação
 import { useRouter } from 'expo-router';
 
 export default function TelaLogin() {
-  // NOVO: Inicializar o router
+  
   const router = useRouter();
 
   const handleLogin = () => {
-    // NOVO: Navegar para a tela do questionário ao pressionar o botão
+  
     router.push('/questionario'); 
   };
 
   return (
     <View style={styles.container}>
-      {/* O resto do seu código permanece o mesmo... */}
+      {}
       <StatusBar barStyle="light-content" />
       <View style={styles.statusBar}>
         <Text style={styles.hora}></Text>
@@ -33,7 +32,7 @@ export default function TelaLogin() {
         <Text style={styles.label}>Senha</Text>
         <TextInput style={styles.input} placeholder="Digite sua senha" secureTextEntry />
 
-        {/* NOVO: Adicionado o onPress para chamar a função de login/navegação */}
+        {}
         <TouchableOpacity style={styles.botaoEntrar} onPress={handleLogin}>
           <Text style={styles.textoBotao}>Entrar</Text>
         </TouchableOpacity>
@@ -41,9 +40,10 @@ export default function TelaLogin() {
        <TouchableOpacity onPress={() => router.push('/EsqueceuSenha')}>
           <Text style={styles.link}>Esqueceu a senha?</Text>
         </TouchableOpacity>
-        <View style={styles.registroArea}>
+
+       <View style={styles.registroArea}>
           <Text style={styles.textoRegistro}>Não tem conta?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => router.push('./TelaCadastro')}> {/* >>> CORREÇÃO 2: Adicionado '.' para navegação relativa */}
             <Text style={styles.linkRegistro}>Cadastre-se</Text>
           </TouchableOpacity>
         </View>
@@ -52,7 +52,7 @@ export default function TelaLogin() {
   );
 }
 
-// Seus estilos permanecem os mesmos
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
-    paddingTop: 40, // Ajuste para status bar
+    paddingTop: 40, 
   },
   hora: {
     color: 'white',
